@@ -10,10 +10,9 @@ const port = process.env.PORT;
 
 const app = express();
 
+// Middleware
 app.use(cors());
-
-// Whenever the server recieves a request with JSON body, parse it into a JavaScript object - req.body
-app.use(express.json());
+app.use(express.json()); // Whenever the server recieves a request with JSON body, parse it into a JavaScript object - req.body
 
 app.get('/', (req, res) => {
     res.send("Server is running");

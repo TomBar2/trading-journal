@@ -15,3 +15,9 @@ export async function getUserByIdService(userId) {
         where: {id: userId},
     });
 }
+
+export async function deleteUserService(userId) {
+    return await prismaClient.users.delete({
+        where: {id: userId},
+    });
+}

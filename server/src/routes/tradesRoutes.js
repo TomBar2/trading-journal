@@ -10,4 +10,10 @@ tradesRouter.get("/:id", tradesController.getTradeById);
 // POST requests
 tradesRouter.post("/createTrade", tradesController.createTrade);
 
+// PUT requests
+tradesRouter.put("/:id", tradesController.updateTrade);
+
+// Delete Requests
+tradesRouter.post("/deleteTrade", tradesController.deleteTrade);
+
 export default tradesRouter;

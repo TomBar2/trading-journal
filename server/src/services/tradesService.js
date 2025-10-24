@@ -20,3 +20,17 @@ export async function getTradeByIdService(tradeId) {
         where: {id: tradeId},
     });
 }
+
+export async function updateTradeService(tradeId, updatedData) {
+    return prismaClient.trades.update({
+        where: {id: tradeId},
+        data: updatedData,
+    })
+}
+
+
+export async function deleteTradeService(tradeId) {
+    return await prismaClient.trades.delete({
+        where: {id: tradeId},
+    });
+}

@@ -1,7 +1,6 @@
 import bcrypt from 'bcrypt';
 
-import * as usersService from '../services/userServices.js'
-
+import * as usersService from '../services/usersService.js'
 
 export async function getUsers(req, res) {
     try {
@@ -33,6 +32,18 @@ export async function getUserById(req, res) {
         res.status(200).json(user);
     } catch (error) {
         console.log("User Controller - getUserById", error);
+        res.status(500).json({error: error});
+    }
+}
+
+export async function deleteUser(req, res) {
+    try {
+        const {id} = req.body
+        const userId = parseInt(id);
+        const deletedUser = await usersService.deleteUserService(userId);
+        res.status(200).json(deletedUser);
+    } catch (error) {
+        console.log("User Controller - deleteUser", error);
         res.status(500).json({error: error});
     }
 }

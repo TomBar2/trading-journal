@@ -3,8 +3,11 @@
 server/.env
 server/node_modules/
 server/prisma/migrations/
+server/src/db/testConnection.js
 
 docs/project-structure.md
+
+TODO.md
 
 @prisma/client/
 

@@ -10,4 +10,7 @@ usersRouter.get("/:id", usersController.getUserById);
 // POST requests
 usersRouter.post("/createUser", usersController.createUser);
 
+// Delete Requests
+usersRouter.delete("/", usersController.deleteUser);
+
 export default usersRouter;
