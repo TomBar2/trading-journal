@@ -1,22 +1,30 @@
 import express from 'express';
-import dotenv from 'dotenv';
 import cors from 'cors';
-import pool from "./db/connection.js";
-import prisma from "./db/prismaClient.js";
+import dotenv from 'dotenv';
 
-// Loads variables from .env file into process.env
-dotenv.config();
+import usersRouter from './routes/usersRouter.js';
+import tradesRouter from './routes/tradesRoutes.js';
+
+dotenv.config(); // Loads variables from .env file into process.env
 const port = process.env.PORT;
 
 const app = express();
 
+app.use(cors());
+
+// Whenever the server recieves a request with JSON body, parse it into a JavaScript object - req.body
+app.use(express.json());
+
 app.get('/', (req, res) => {
-   res.send("Server is running");
+    res.send("Server is running");
 });
 
+// Any request whose path starts with /api/x should be handled by the routes defined in xRouter
+app.use('/api/users', usersRouter);
+app.use('/api/trades', tradesRouter);
 
 // Server is now ready to get requests
-app.listen(process.env.PORT, () =>{
- console.log(`Server started on port: http://localhost:${port}`);
+app.listen(port, () => {
+    console.log(`Server started on port: http://localhost:${port}`);
 });
 
