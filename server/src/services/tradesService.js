@@ -1,9 +1,15 @@
 import prismaClient from '../db/prismaClient.js';
 
+/***
+
+ ***/
 export async function getTradesService() {
     return prismaClient.trades.findMany();
 }
 
+/***
+
+ ***/
 export async function createTradeService(tradeData) {
     // Prisma will only use the properties defined in trades model.
     // Extra properties in req.body are ignored unless we specifically reference them
@@ -15,12 +21,18 @@ export async function createTradeService(tradeData) {
     });
 }
 
+/***
+
+ ***/
 export async function getTradeByIdService(tradeId) {
     return await prismaClient.trades.findUnique({
         where: {id: tradeId},
     });
 }
 
+/***
+
+ ***/
 export async function updateTradeService(tradeId, updatedData) {
     return prismaClient.trades.update({
         where: {id: tradeId},
@@ -28,7 +40,9 @@ export async function updateTradeService(tradeId, updatedData) {
     })
 }
 
+/***
 
+ ***/
 export async function deleteTradeService(tradeId) {
     return await prismaClient.trades.delete({
         where: {id: tradeId},
