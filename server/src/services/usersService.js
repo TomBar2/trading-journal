@@ -1,19 +1,19 @@
-import prismaClient from '../db/prismaClient.js';
+import prismaClient from "../db/prismaClient.js"
 
 /***
 
  ***/
 export async function createUserService(email, hashedPassword) {
     return prismaClient.users.create({
-        data: {email: email, password_hash: hashedPassword}
-    });
+        data: { email: email, password_hash: hashedPassword },
+    })
 }
 
 /***
 
  ***/
 export async function getUsersService() {
-    return prismaClient.users.findMany();
+    return prismaClient.users.findMany()
 }
 
 /***
@@ -21,8 +21,8 @@ export async function getUsersService() {
  ***/
 export async function getUserByIdService(userId) {
     return await prismaClient.users.findUnique({
-        where: {id: userId},
-    });
+        where: { id: userId },
+    })
 }
 
 /***
@@ -30,8 +30,8 @@ export async function getUserByIdService(userId) {
  ***/
 export async function getUserTradesService(userId) {
     return prismaClient.trades.findMany({
-        where: {user_id: userId},
-    });
+        where: { user_id: userId },
+    })
 }
 
 /***
@@ -39,6 +39,6 @@ export async function getUserTradesService(userId) {
  ***/
 export async function deleteUserService(userId) {
     return await prismaClient.users.delete({
-        where: {id: userId},
-    });
+        where: { id: userId },
+    })
 }

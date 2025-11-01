@@ -1,10 +1,10 @@
-import prismaClient from '../db/prismaClient.js';
+import prismaClient from "../db/prismaClient.js"
 
 /***
 
  ***/
 export async function getTradesService() {
-    return prismaClient.trades.findMany();
+    return prismaClient.trades.findMany()
 }
 
 /***
@@ -18,7 +18,7 @@ export async function createTradeService(tradeData) {
     // ToDo - Make sure stop-loss price is lower than entry price and take-profit is higher than entry-price
     return prismaClient.trades.create({
         data: tradeData,
-    });
+    })
 }
 
 /***
@@ -26,8 +26,8 @@ export async function createTradeService(tradeData) {
  ***/
 export async function getTradeByIdService(tradeId) {
     return await prismaClient.trades.findUnique({
-        where: {id: tradeId},
-    });
+        where: { id: tradeId },
+    })
 }
 
 /***
@@ -35,7 +35,7 @@ export async function getTradeByIdService(tradeId) {
  ***/
 export async function updateTradeService(tradeId, updatedData) {
     return prismaClient.trades.update({
-        where: {id: tradeId},
+        where: { id: tradeId },
         data: updatedData,
     })
 }
@@ -45,6 +45,6 @@ export async function updateTradeService(tradeId, updatedData) {
  ***/
 export async function deleteTradeService(tradeId) {
     return await prismaClient.trades.delete({
-        where: {id: tradeId},
-    });
+        where: { id: tradeId },
+    })
 }

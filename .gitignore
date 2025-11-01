@@ -1,3 +1,6 @@
+# Project's Root folder
+node_modules/
+
 # JetBrains files
 .idea/
 

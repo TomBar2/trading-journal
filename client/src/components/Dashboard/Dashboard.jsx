@@ -1,20 +1,17 @@
-import TradeList from "../../features/trades/TradeList.jsx";
-import {useTrades} from "../../hooks/useTrades.js";
+import TradesTable from "../../features/trades/TradesTable.jsx"
+import { useTrades } from "../../hooks/useTrades.js"
 
 export default function Dashboard() {
-    const {trades, loading} = useTrades()
-
+    const { trades, loading } = useTrades()
 
     if (loading) {
-        return (
-            <p>Loading...</p>
-        )
+        return <p>Loading...</p>
     }
 
     return (
-        <div className='bg-white rounded-lg shadow pb-4'>
+        <div className="rounded-lg bg-white pb-4 shadow">
             Dashboard
-            <TradeList trades={trades}/>
+            <TradesTable trades={trades} />
         </div>
     )
 }

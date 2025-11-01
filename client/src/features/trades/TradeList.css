@@ -1,0 +1,54 @@
+@reference "tailwindcss";
+
+@layer components {
+    /* Outer container matches cards & sidebar */
+    .table-wrapper {
+        @apply rounded-2xl border border-white/20 bg-white/10 p-4 shadow-lg backdrop-blur-md;
+    }
+
+    /* Header row — darker and stable (no hover) */
+    thead {
+        @apply border-b border-white/10 bg-gradient-to-b from-white/10 to-white/5;
+    }
+
+    th {
+        @apply px-4 py-3 text-left text-xs font-semibold tracking-wider text-black uppercase;
+    }
+
+    /* Body text — slightly brighter for readability */
+    td {
+        @apply px-4 py-3 text-sm text-slate-300;
+    }
+
+    /* Row separators */
+    tr {
+        @apply border-b border-white/10;
+    }
+
+    tr:last-child {
+        @apply border-b-0;
+    }
+
+    /* Alternating row backgrounds for depth */
+    tbody tr:nth-child(odd) {
+        @apply bg-white/[0.04];
+    }
+
+    tbody tr:nth-child(even) {
+        @apply bg-white/[0.02];
+    }
+
+    /* Row hover – subtle luminance (not too white) */
+    tbody tr:hover {
+        @apply bg-indigo-500/10 transition-colors duration-200;
+    }
+
+    /* Colored numbers for stop loss / take profit */
+    .td-red {
+        @apply font-medium text-red-400;
+    }
+
+    .td-green {
+        @apply font-medium text-green-400;
+    }
+}
