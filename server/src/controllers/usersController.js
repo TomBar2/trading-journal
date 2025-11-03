@@ -1,6 +1,6 @@
-import bcrypt from "bcrypt"
+import bcrypt from 'bcrypt'
 
-import * as usersService from "../services/usersService.js"
+import * as usersService from '../services/usersService.js'
 
 /***
 
@@ -10,7 +10,7 @@ export async function getUsers(req, res) {
         const users = await usersService.getUsersService()
         res.json(users)
     } catch (error) {
-        console.log("[Users Controller] getUsers:", error)
+        console.log('[Users Controller] getUsers:', error)
         res.status(500).json({ error: error })
     }
 }
@@ -25,7 +25,7 @@ export async function createUser(req, res) {
         const newUser = await usersService.createUserService(userEmail, hashedPassword)
         res.status(201).json(newUser)
     } catch (error) {
-        console.log("[Users Controller] createUser:", error)
+        console.log('[Users Controller] createUser:', error)
         res.status(500).json({ error: error })
     }
 }
@@ -40,7 +40,7 @@ export async function getUserById(req, res) {
         const user = await usersService.getUserByIdService(userId)
         res.status(200).json(user)
     } catch (error) {
-        console.log("[Users Controller] getUserById:", error)
+        console.log('[Users Controller] getUserById:', error)
         res.status(500).json({ error: error })
     }
 }
@@ -56,7 +56,7 @@ export async function getUserTrades(req, res) {
         const trades = await usersService.getUserTradesService(userId)
         res.status(200).json(trades)
     } catch (error) {
-        console.log("[Users Controller] getUserTrades:", error)
+        console.log('[Users Controller] getUserTrades:', error)
         res.status(500).json({ error: error })
     }
 }
@@ -71,7 +71,7 @@ export async function deleteUser(req, res) {
         const deletedUser = await usersService.deleteUserService(userId)
         res.status(200).json(deletedUser)
     } catch (error) {
-        console.log("[Users Controller] deleteUser:", error)
+        console.log('[Users Controller] deleteUser:', error)
         res.status(500).json({ error: error })
     }
 }

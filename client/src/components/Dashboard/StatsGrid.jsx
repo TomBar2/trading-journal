@@ -1,10 +1,11 @@
-import StatsCard from "./StatsCard/StatsCard.jsx"
+import StatsCard from './StatsCard/StatsCard.jsx'
+import NetWorthChart from '@/components/Dashboard/NetWorthChart/NetWorthChart.jsx'
 
 export default function StatsGrid() {
     return (
         <div className="grid grid-cols-4 grid-rows-16 gap-4">
             <div className="col-span-2 row-span-16">
-                <StatsCard title="Win Rate" value="68%" />
+                <NetWorthChart />
             </div>
 
             <div className="row-span-8">

@@ -1,5 +1,5 @@
-import TradesTable from "../../features/trades/TradesTable.jsx"
-import { useTrades } from "../../hooks/useTrades.js"
+import TradesTable from '../../features/trades/TradesTable.jsx'
+import { useTrades } from '../../hooks/useTrades.js'
 
 export default function OpenTradesCard() {
     const { trades, loading } = useTrades()

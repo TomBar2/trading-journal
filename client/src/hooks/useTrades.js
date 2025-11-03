@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react"
-import { getAllTrades } from "../api/tradesApi"
+import { useState, useEffect } from 'react'
+import { getAllTrades } from '../api/tradesApi'
 
 export function useTrades() {
     const [trades, setTrades] = useState([])

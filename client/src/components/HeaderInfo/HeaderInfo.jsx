@@ -12,8 +12,8 @@ export default function HeaderInfo() {
                     <p className="text-lg font-medium text-white">Hi Tom!</p>
                     <p className="text-white/80">
                         {/* The {" "} is to make sure we have a space */}
-                        Your total net-worth:{" "}
-                        <span className="font-semibold text-white">15,987$</span>{" "}
+                        Your total net-worth:{' '}
+                        <span className="font-semibold text-white">15,987$</span>{' '}
                         <span className="font-semibold text-green-500">29% change</span>
                     </p>
                 </div>

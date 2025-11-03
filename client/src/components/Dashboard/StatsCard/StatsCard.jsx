@@ -1,4 +1,4 @@
-import "./StatsCard.css"
+import './StatsCard.css'
 
 export default function StatsCard({ title, value }) {
     return (

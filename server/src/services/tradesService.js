@@ -1,4 +1,4 @@
-import prismaClient from "../db/prismaClient.js"
+import prismaClient from '../db/prismaClient.js'
 
 /***
 

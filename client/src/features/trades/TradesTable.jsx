@@ -5,8 +5,8 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/components/ui/table"
-import "./TradeList.css"
+} from '@/components/ui/table'
+import './TradeList.css'
 
 export default function TradesTable({ trades }) {
     if (!trades.length) return <p className="py-6 text-center text-white/70">No trades found.</p>
@@ -14,7 +14,7 @@ export default function TradesTable({ trades }) {
     return (
         <div className="table-wrapper rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md">
             <Table className="min-w-full text-sm leading-relaxed">
-                <TableHeader className="border-b border-white/20 bg-white/[0.07]">
+                <TableHeader className="border-b border-white/20 bg-white/[0.001]">
                     <TableRow className="border-b border-white/40 hover:bg-transparent">
                         <TableHead className="text-md text-white/70 uppercase">Symbol</TableHead>
                         <TableHead className="text-md text-white/70 uppercase">Current</TableHead>
@@ -22,15 +22,15 @@ export default function TradesTable({ trades }) {
                             Entry Price
                         </TableHead>
                         <TableHead className="text-md text-white/70 uppercase">Quantity</TableHead>
-                        <TableHead className="text-xs text-white/70 uppercase">Total</TableHead>
-                        <TableHead className="text-xs text-white/70 uppercase">Stop Loss</TableHead>
-                        <TableHead className="text-xs text-white/70 uppercase">
+                        <TableHead className="text-md text-white/70 uppercase">Total</TableHead>
+                        <TableHead className="text-md text-white/70 uppercase">Stop Loss</TableHead>
+                        <TableHead className="text-md text-white/70 uppercase">
                             Take Profit
                         </TableHead>
-                        <TableHead className="text-xs text-white/70 uppercase">
+                        <TableHead className="text-md text-white/70 uppercase">
                             Entry Date
                         </TableHead>
-                        <TableHead className="text-xs text-white/70 uppercase">Horizon</TableHead>
+                        <TableHead className="text-md text-white/70 uppercase">Horizon</TableHead>
                     </TableRow>
                 </TableHeader>
 
@@ -40,7 +40,7 @@ export default function TradesTable({ trades }) {
                             key={t.id}
                             className="transition-colors odd:bg-white/[0.02] even:bg-transparent hover:bg-white/[0.05]"
                         >
-                            <TableCell className="font-semibold text-white">{t.symbol}</TableCell>
+                            <TableCell className="text-sm text-white/80">{t.symbol}</TableCell>
                             <TableCell className="text-white/80 tabular-nums">
                                 {t.current_price}
                             </TableCell>
