@@ -1,0 +1,52 @@
+services:
+  db:
+    # Tell Docker to download PostgreSQL image 15
+    image: postgres:15
+    container_name: trading-journal-db
+    restart: always
+    # When this container starts for the first time, configure it with the following details:
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: trading_journal
+    ports:
+      # When trying to reach port 5433 on the localhost (outside Docker), refer to port 5432 inside docker
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    env_file:
+      - ./server/.env.docker
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://postgres:1234@db:5432/trading_journal
+    depends_on:
+      - db
+    command: npm run dev
+    working_dir: /app
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev -- --host 0.0.0.0
+    working_dir: /app
+
+volumes:
+  postgres_data:

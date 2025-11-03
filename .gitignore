@@ -6,6 +6,7 @@ node_modules/
 
 # Server folder
 server/.env
+server/.env.docker
 server/node_modules/
 server/prisma/migrations/
 server/src/db/testConnection.js
