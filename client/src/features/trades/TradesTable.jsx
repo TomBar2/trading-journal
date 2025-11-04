@@ -1,12 +1,5 @@
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from '@/components/ui/table'
-import './TradeList.css'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table.jsx'
+import './TradeTable.css'
 
 export default function TradesTable({ trades }) {
     if (!trades.length) return <p className="py-6 text-center text-white/70">No trades found.</p>
@@ -18,18 +11,12 @@ export default function TradesTable({ trades }) {
                     <TableRow className="border-b border-white/40 hover:bg-transparent">
                         <TableHead className="text-md text-white/70 uppercase">Symbol</TableHead>
                         <TableHead className="text-md text-white/70 uppercase">Current</TableHead>
-                        <TableHead className="text-md text-white/70 uppercase">
-                            Entry Price
-                        </TableHead>
+                        <TableHead className="text-md text-white/70 uppercase">Entry Price</TableHead>
                         <TableHead className="text-md text-white/70 uppercase">Quantity</TableHead>
                         <TableHead className="text-md text-white/70 uppercase">Total</TableHead>
                         <TableHead className="text-md text-white/70 uppercase">Stop Loss</TableHead>
-                        <TableHead className="text-md text-white/70 uppercase">
-                            Take Profit
-                        </TableHead>
-                        <TableHead className="text-md text-white/70 uppercase">
-                            Entry Date
-                        </TableHead>
+                        <TableHead className="text-md text-white/70 uppercase">Take Profit</TableHead>
+                        <TableHead className="text-md text-white/70 uppercase">Entry Date</TableHead>
                         <TableHead className="text-md text-white/70 uppercase">Horizon</TableHead>
                     </TableRow>
                 </TableHeader>
@@ -41,30 +28,18 @@ export default function TradesTable({ trades }) {
                             className="transition-colors odd:bg-white/[0.02] even:bg-transparent hover:bg-white/[0.05]"
                         >
                             <TableCell className="text-sm text-white/80">{t.symbol}</TableCell>
-                            <TableCell className="text-white/80 tabular-nums">
-                                {t.current_price}
-                            </TableCell>
-                            <TableCell className="text-white/80 tabular-nums">
-                                {t.entry_price}
-                            </TableCell>
-                            <TableCell className="text-white/80 tabular-nums">
-                                {t.quantity}
-                            </TableCell>
+                            <TableCell className="text-white/80 tabular-nums">{t.current_price}</TableCell>
+                            <TableCell className="text-white/80 tabular-nums">{t.entry_price}</TableCell>
+                            <TableCell className="text-white/80 tabular-nums">{t.quantity}</TableCell>
                             <TableCell className="text-white/80 tabular-nums">
                                 {(t.entry_price * t.quantity).toFixed(2)}
                             </TableCell>
-                            <TableCell className="font-medium text-red-400">
-                                {t.stop_loss}
-                            </TableCell>
-                            <TableCell className="font-medium text-green-400">
-                                {t.take_profit}
-                            </TableCell>
+                            <TableCell className="font-medium text-red-400">{t.stop_loss}</TableCell>
+                            <TableCell className="font-medium text-green-400">{t.take_profit}</TableCell>
                             <TableCell className="text-white/70">
                                 {new Date(t.entry_date).toLocaleDateString()}
                             </TableCell>
-                            <TableCell className="text-white/80 capitalize">
-                                {t.investment_horizon}
-                            </TableCell>
+                            <TableCell className="text-white/80 capitalize">{t.investment_horizon}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

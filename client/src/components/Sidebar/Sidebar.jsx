@@ -1,13 +1,4 @@
-import {
-    Home,
-    History,
-    PlusCircle,
-    BarChart3,
-    Notebook,
-    User,
-    Settings,
-    LogOut,
-} from 'lucide-react'
+import { Home, History, PlusCircle, BarChart3, Notebook, User, Settings, LogOut } from 'lucide-react'
 
 export default function Sidebar() {
     return (
@@ -15,7 +6,6 @@ export default function Sidebar() {
             {/* --- Top: Main navigation --- */}
             <nav className="flex flex-col gap-3 text-sm font-medium text-white/90">
                 <SidebarItem icon={<Home size={18} />} label="Dashboard" active />
-                <SidebarItem icon={<PlusCircle size={18} />} label="New Trade" />
                 <SidebarItem icon={<History size={18} />} label="Past Trades" />
                 <SidebarItem icon={<Notebook size={18} />} label="Strategy Notes" />
                 <SidebarItem icon={<BarChart3 size={18} />} label="Insights" />
