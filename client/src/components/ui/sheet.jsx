@@ -66,23 +66,11 @@ function SheetContent({ className, children, side = 'right', ...props }) {
 }
 
 function SheetHeader({ className, ...props }) {
-    return (
-        <div
-            data-slot="sheet-header"
-            className={cn('flex flex-col gap-1.5 p-4', className)}
-            {...props}
-        />
-    )
+    return <div data-slot="sheet-header" className={cn('flex flex-col gap-1.5 p-4', className)} {...props} />
 }
 
 function SheetFooter({ className, ...props }) {
-    return (
-        <div
-            data-slot="sheet-footer"
-            className={cn('mt-auto flex flex-col gap-2 p-4', className)}
-            {...props}
-        />
-    )
+    return <div data-slot="sheet-footer" className={cn('mt-auto flex flex-col gap-2 p-4', className)} {...props} />
 }
 
 function SheetTitle({ className, ...props }) {
@@ -105,13 +93,4 @@ function SheetDescription({ className, ...props }) {
     )
 }
 
-export {
-    Sheet,
-    SheetTrigger,
-    SheetClose,
-    SheetContent,
-    SheetHeader,
-    SheetFooter,
-    SheetTitle,
-    SheetDescription,
-}
+export { Sheet, SheetTrigger, SheetClose, SheetContent, SheetHeader, SheetFooter, SheetTitle, SheetDescription }

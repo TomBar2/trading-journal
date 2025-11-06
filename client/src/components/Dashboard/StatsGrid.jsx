@@ -9,10 +9,7 @@ export default function StatsGrid() {
             </div>
 
             <div className="row-span-8">
-                <StatsCard
-                    title="Avg Return"
-                    value={<span className="text-green-600">+3.2%</span>}
-                />
+                <StatsCard title="Avg Return" value={<span className="text-green-600">+3.2%</span>} />
             </div>
 
             <div className="row-span-16">

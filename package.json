@@ -2,5 +2,9 @@
     "devDependencies": {
         "prettier": "^3.6.2",
         "prettier-plugin-tailwindcss": "^0.7.1"
+    },
+    "scripts": {
+        "format": "prettier --config config/prettier/.prettierrc.json --ignore-path config/prettier/.prettierignore \"**/*.{js,jsx,ts,tsx,json,css,md}\" --write",
+        "format:check": "prettier --check ."
     }
 }
