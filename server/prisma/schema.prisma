@@ -16,16 +16,24 @@ model trades {
   id                 Int       @id @default(autoincrement())
   user_id            Int       // actual column in DB
   users              users     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)  // virtual relation
+
   symbol             String
   entry_price        Decimal?  @db.Decimal(10, 2)
+  entry_reason       String?
+  investment_horizon String?
+
+  exit_price         Decimal? @db.Decimal(10, 2)
+  exit_reason        String?
+
+  quantity           Decimal?  @db.Decimal(10, 2)
   stop_loss          Decimal   @db.Decimal(10, 2)
   take_profit        Decimal?  @db.Decimal(10, 2)
-  quantity           Decimal?  @db.Decimal(10, 2)
+
   entry_date         DateTime? @default(now()) @db.Timestamp(6)
   exit_date          DateTime? @db.Timestamp(6)
-  investment_horizon String?
   is_open            Boolean?  @default(true)
   notes              String?
+
 }
 
 model users {
